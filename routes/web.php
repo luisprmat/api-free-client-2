@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\OauthController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,6 +24,5 @@ Route::get('/dashboard', function () {
 
 require __DIR__.'/auth.php';
 
-Route::get('redirect', function () {
-    return 'Te has redirigido';
-})->name('redirect');
+Route::get('redirect', [OauthController::class, 'redirect'])->name('redirect');
+Route::get('callback', [OauthController::class, 'callback'])->name('callback');
